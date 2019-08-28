@@ -34,6 +34,7 @@
 		"assets"
 	],
 	"dependencies": {
+		"git-rev-sync": "^1.12.0",
 		"modify-filename": "^1.1.0",
 		"plugin-error": "^1.0.1",
 		"rev-hash": "^3.0.0",

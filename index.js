@@ -2,7 +2,8 @@
 const path = require('path');
 const through = require('through2');
 const vinylFile = require('vinyl-file');
-const revHash = require('rev-hash');
+// const revHash = require('rev-hash');
+const git = require ('git-rev-sync');
 const revPath = require('rev-path');
 const sortKeys = require('sort-keys');
 const modifyFilename = require('modify-filename');
@@ -30,7 +31,8 @@ function transformFilename(file) {
 	// Save the old path for later
 	file.revOrigPath = file.path;
 	file.revOrigBase = file.base;
-	file.revHash = revHash(file.contents);
+	// file.revHash = revHash(file.contents);
+	file.revHash = git.short();
 
 	file.path = modifyFilename(file.path, (filename, extension) => {
 		const extIndex = filename.lastIndexOf('.');
